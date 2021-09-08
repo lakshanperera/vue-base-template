@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "serve",
+      "problemMatcher": [
+        {
+          "pattern": [
+            {
+              "regexp": ".",
+              "file": 1,
+              "location": 2,
+              "message": 3
+            }
+          ],
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": ".",
+            "endsPattern": "."
+          }
+        }
+      ],
+      "label": "npm: serve",
+      "detail": "vue-cli-service serve",
+      "isBackground": true
+    },
+    {
+      "label": "terminate: serve",
+      "command": "echo ${input:terminateServe}",
+      "type": "shell",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminateServe",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "npm: serve"
+    }
+  ]
+}
